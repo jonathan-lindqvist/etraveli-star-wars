@@ -31,7 +31,13 @@ class List extends Component {
   
   renderMovies(){
     const sortedMovieList = this.props.movies.sort(this.compare)
-    const list = sortedMovieList.map((movie) => {
+    const filterdMovieList = sortedMovieList.filter( movie => {
+      const title = movie.title.toLowerCase()
+      const searchQuery = this.props.searchQuery.toLowerCase()
+      return title.includes(searchQuery) 
+    })
+
+    const list = filterdMovieList.map((movie) => {
       return ( 
         <div key={movie.id} className="movie-item">
           <p>{movie.id}</p>
