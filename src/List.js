@@ -7,34 +7,26 @@ class List extends Component {
     this.compare = this.compare.bind(this);
   }
 
-
   compare(a,b){
     const compareBy = this.props.sortedBy
     let comparison = 0
+    let movieA = ""
+    let movieB = ""
     
     if(compareBy === "Episode"){
-      const episodeA = a.id
-      const episodeB = b.id
-      if (episodeA > episodeB){
-        comparison = 1
-      } else {
-        comparison = -1
-      }
-
-      return comparison
+      movieA = a.id
+      movieB = b.id
+    }else{
+      movieA = parseInt(a.year.split("-")[0])
+      movieB = parseInt(b.year.split("-")[0])
     }
 
-    if(compareBy === "Year"){
-      const episodeA = parseInt(a.year.split("-")[0])
-      const episodeB = parseInt(b.year.split("-")[0])
-      if (episodeA > episodeB){
-        comparison = 1
-      } else {
-        comparison = -1
-      }
-
-      return comparison
+    if (movieA > movieB){
+      comparison = 1
+    } else {
+      comparison = -1
     }
+    return comparison
   }
   
   renderMovies(){
