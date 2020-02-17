@@ -1,8 +1,9 @@
 .movie-item{
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    justify-content: space-between;
-    border-bottom: 2px solid darkgrey;
-    margin: 0 15px 0 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 2px solid darkgrey;
+  margin: 0 15px 0 15px;
 }
+

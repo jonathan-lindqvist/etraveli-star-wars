@@ -4,7 +4,7 @@ class List extends Component {
   constructor(props){
     super(props)
 
-    this.compare = this.compare.bind(this);
+    this.compare = this.compare.bind(this)
   }
 
   compare(a,b){
@@ -39,7 +39,7 @@ class List extends Component {
 
     const list = filterdMovieList.map((movie) => {
       return ( 
-        <div key={movie.id} className="movie-item">
+        <div key={movie.id} className="movie-item" onClick={(e) => this.props.handleClick(movie.id, e)}>
           <p>{movie.id}</p>
           <h2>{movie.title}</h2>
           <p>{movie.year}</p>
@@ -58,4 +58,4 @@ class List extends Component {
   }
 }
 
-export default List;
+export default List
