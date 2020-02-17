@@ -11,9 +11,9 @@ class SelectedMovie extends Component {
     const list = this.props.selected.map((movie) => {
       return ( 
         <div key={movie.id}>
-          <h2>{movie.title}</h2>
-          <p>{movie.opening_crawl}</p>
-          <p>Directed by: {movie.director}</p>
+          <h2>{movie.fields.title}</h2>
+          <p>{movie.fields.opening_crawl}</p>
+          <p>Directed by: {movie.fields.director}</p>
         </div>
       )
     })

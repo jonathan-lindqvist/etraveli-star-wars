@@ -8,36 +8,28 @@ class App extends Component {
     super(props);
 
     this.state = {
-      movies: [
-        {
-          id: 2,
-          title: "star wars 12",
-          director: "John Cena",
-          opening_crawl: "pew pew pew",
-          year: "1983-05-17"
-        },
-        {
-          id: 4,
-          title: "star wars 2: A new hope",
-          director: "John Cena",
-          opening_crawl: "pew pew pew2",
-          year: "1980-05-17"
-        },
-        {
-          id: 0,
-          title: "star wars 3",
-          director: "John Smith",
-          opening_crawl: "pew pew pe3w",
-          year: "1988-05-17"
-        }
-      ],
+      movies: [],
       sortedBy: "Episode",
       searchQuery: "",
-      selected: ""
+      selected: "",
+      loading: true
     }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
+  }
+
+  componentDidMount() {
+    fetch('https://star-wars-api.herokuapp.com/films')
+      .then(response => {
+        return response.json();
+      })
+      .then((movies) => {
+        this.setState({
+          movies: movies,
+          loading: false
+        })
+      });
   }
 
   handleChange(e){
@@ -76,7 +68,7 @@ class App extends Component {
             onChange={this.handleChange}
           />
         </form>
-        <List movies={this.state.movies} sortedBy={this.state.sortedBy} searchQuery={this.state.searchQuery} handleClick={this.handleClick}/>
+        {this.state.loading ? <p>Loading</p> : <List movies={this.state.movies} sortedBy={this.state.sortedBy} searchQuery={this.state.searchQuery} handleClick={this.handleClick}/> }
         <SelectedMovie selected={this.state.selected} />
       </div>
     )

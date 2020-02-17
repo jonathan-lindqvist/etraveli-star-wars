@@ -14,11 +14,11 @@ class List extends Component {
     let movieB = ""
     
     if(compareBy === "Episode"){
-      movieA = a.id
-      movieB = b.id
+      movieA = a.fields.episode_id
+      movieB = b.fields.episode_id
     }else{
-      movieA = parseInt(a.year.split("-")[0])
-      movieB = parseInt(b.year.split("-")[0])
+      movieA = parseInt(a.fields.release_date.split("-")[0])
+      movieB = parseInt(b.fields.release_date.split("-")[0])
     }
 
     if (movieA > movieB){
@@ -32,17 +32,17 @@ class List extends Component {
   renderMovies(){
     const sortedMovieList = this.props.movies.sort(this.compare)
     const filterdMovieList = sortedMovieList.filter( movie => {
-      const title = movie.title.toLowerCase()
+      const title = movie.fields.title.toLowerCase()
       const searchQuery = this.props.searchQuery.toLowerCase()
       return title.includes(searchQuery) 
     })
 
     const list = filterdMovieList.map((movie) => {
       return ( 
-        <div key={movie.id} className="movie-item" onClick={(e) => this.props.handleClick(movie.id, e)}>
-          <p>{movie.id}</p>
-          <h2>{movie.title}</h2>
-          <p>{movie.year}</p>
+        <div key={movie.fields.episode_id} className="movie-item" onClick={(e) => this.props.handleClick(movie.fields.episode_id, e)}>
+          <p>EPISODE: {movie.fields.episode_id}</p>
+          <h2>{movie.fields.title}</h2>
+          <p>{movie.fields.release_date}</p>
         </div>
       )
     })
