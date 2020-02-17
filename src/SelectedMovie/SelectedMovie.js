@@ -1,15 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './SelectedMovie.css'
 
-class SelectedMovie extends Component {
-  constructor(props){
-    super(props)
-
-    this.handleSelectedMovie = this.handleSelectedMovie.bind(this)
-  }
-
-  handleSelectedMovie(){
-    const list = this.props.selected.map((movie) => {
+export const SelectedMovie = (props) => {
+  const handleSelectedMovie = () => {
+    const list = props.selected.map((movie) => {
       return ( 
         <div key={movie.id} className="movie-details">
           <h2>{movie.fields.title}</h2>
@@ -21,12 +15,12 @@ class SelectedMovie extends Component {
     return <div>{list}</div>
   }
 
-  render() {
+  const selected = () => {
     let info = ""
-    if(this.props.selected === ""){
+    if(props.selected === ""){
       info = <p className="no-movie">No movie Selected</p>
     }else{
-      info = this.handleSelectedMovie()
+      info = handleSelectedMovie()
     }
 
     return (
@@ -35,6 +29,8 @@ class SelectedMovie extends Component {
       </div>
     )
   }
+
+  return selected()
 }
 
 export default SelectedMovie

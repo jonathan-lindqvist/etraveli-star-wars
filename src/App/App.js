@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import './App.css'
-import List from '../List/List';
-import SelectedMovie from '../SelectedMovie/SelectedMovie';
+import {List} from '../List/List';
+import {SelectedMovie} from '../SelectedMovie/SelectedMovie';
 
-class App extends Component {
+export class App extends Component {
   constructor(props) {
     super(props);
 
@@ -75,5 +75,3 @@ class App extends Component {
     )
   }
 }
-
-export default App
