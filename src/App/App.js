@@ -42,7 +42,7 @@ class App extends Component {
   }
 
   handleClick(id,e){
-    const clickedMovie = this.state.movies.filter( movie => movie.id === id)
+    const clickedMovie = this.state.movies.filter( movie => movie.fields.episode_id === id)
     this.setState({
       selected: clickedMovie
     })
