@@ -1,0 +1,12 @@
+.SelectedMovie{
+  width: 50%;
+}
+
+.no-movie{
+  margin-top: 50%;
+  margin-left: 50%;
+}
+
+.movie-details{
+  margin: 0 15px 0 15px;
+}

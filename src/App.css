@@ -1,9 +1,35 @@
-.movie-item{
+form{
+  padding: 15px;
+  background-color: #F6F8FA;
+  border-top: #D1D5DA solid 2px;
+  border-bottom: #D1D5DA solid 2px;
   display: flex;
   flex-direction: row;
-  align-items: baseline;
-  justify-content: space-between;
-  border-bottom: 2px solid darkgrey;
-  margin: 0 15px 0 15px;
 }
 
+label{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+select{
+  margin: 0 15px 0 5px;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #D1D5DA;
+}
+
+input{
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  border: 1px solid #D1D5DA;
+  width: 90%;
+}
+
+.movie-list{
+  display: flex;
+  flex-direction: row;
+}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './SelectedMovie.css'
 
 class SelectedMovie extends Component {
   constructor(props){
@@ -10,7 +11,7 @@ class SelectedMovie extends Component {
   handleSelectedMovie(){
     const list = this.props.selected.map((movie) => {
       return ( 
-        <div key={movie.id}>
+        <div key={movie.id} className="movie-details">
           <h2>{movie.fields.title}</h2>
           <p>{movie.fields.opening_crawl}</p>
           <p>Directed by: {movie.fields.director}</p>
@@ -23,7 +24,7 @@ class SelectedMovie extends Component {
   render() {
     let info = ""
     if(this.props.selected === ""){
-      info = <p>No movie Selected</p>
+      info = <p className="no-movie">No movie Selected</p>
     }else{
       info = this.handleSelectedMovie()
     }

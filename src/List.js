@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './List.css'
 
 class List extends Component {
   constructor(props){
@@ -40,9 +41,11 @@ class List extends Component {
     const list = filterdMovieList.map((movie) => {
       return ( 
         <div key={movie.fields.episode_id} className="movie-item" onClick={(e) => this.props.handleClick(movie.fields.episode_id, e)}>
-          <p>EPISODE: {movie.fields.episode_id}</p>
-          <h2>{movie.fields.title}</h2>
-          <p>{movie.fields.release_date}</p>
+          <div className="episode-title">
+            <p className="movie-item-info"><small>EPISODE {movie.fields.episode_id}</small></p>
+            <h3>{movie.fields.title}</h3>
+          </div>
+          <p className="movie-item-info"><small>{movie.fields.release_date}</small></p>
         </div>
       )
     })

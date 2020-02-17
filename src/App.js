@@ -51,8 +51,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <h1>Etraveli Star Wars</h1>
+      <div>
         <form>
           <label>
             Sort by: 
@@ -68,8 +67,10 @@ class App extends Component {
             onChange={this.handleChange}
           />
         </form>
-        {this.state.loading ? <p>Loading</p> : <List movies={this.state.movies} sortedBy={this.state.sortedBy} searchQuery={this.state.searchQuery} handleClick={this.handleClick}/> }
-        <SelectedMovie selected={this.state.selected} />
+        <div className="movie-list">
+          {this.state.loading ? <p>Loading</p> : <List movies={this.state.movies} sortedBy={this.state.sortedBy} searchQuery={this.state.searchQuery} handleClick={this.handleClick}/> }
+          <SelectedMovie selected={this.state.selected} />
+        </div>
       </div>
     )
   }
